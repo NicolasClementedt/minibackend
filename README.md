@@ -1,97 +1,111 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+🛒 Mini E-Commerce API (NestJS)
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+Esta API funciona como o backend de um mini e-commerce, fornecendo dados de produtos de forma simples e eficiente. O objetivo do projeto é demonstrar a construção de uma API REST organizada, seguindo boas práticas de arquitetura com NestJS.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+A documentação serve como um guia completo de uso e entendimento do projeto, permitindo que qualquer pessoa consiga rodar, consumir e avaliar a API de forma autônoma.
 
-## Description
+❓ Por que NestJS?
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+O NestJS foi escolhido por oferecer uma arquitetura bem definida e amplamente utilizada em projetos profissionais com Node.js.
 
-## Project setup
+Principais motivos da escolha:
 
-```bash
-$ npm install
-```
+Organização modular clara
 
-## Compile and run the project
+Separação de responsabilidades (Controller, Service, Entity)
 
-```bash
-# development
-$ npm run start
+Facilidade de manutenção e escalabilidade
 
-# watch mode
-$ npm run start:dev
+Uso de padrões consolidados no mercado
 
-# production mode
-$ npm run start:prod
-```
+Ótima integração com TypeScript
 
-## Run tests
+Mesmo sendo um projeto simples, o uso do NestJS permite manter uma base sólida e preparada para crescimento.
 
-```bash
-# unit tests
-$ npm run test
+🏗️ Estrutura do Projeto
 
-# e2e tests
-$ npm run test:e2e
+A aplicação segue a arquitetura padrão do NestJS, focada em clareza e responsabilidade única para cada camada:
 
-# test coverage
-$ npm run test:cov
-```
+Entity
+Define o modelo de dados do produto e aplica validações através de decoradores.
 
-## Deployment
+Service
+Centraliza a regra de negócio e gerencia a leitura dos dados a partir do arquivo JSON.
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+Controller
+Responsável por expor os endpoints HTTP e retornar as respostas ao cliente.
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+Essa divisão facilita testes, manutenção e evolução do código.
 
-```bash
-$ npm install -g @nestjs/mau
-$ mau deploy
-```
+📦 Persistência de Dados (Decisão Técnica)
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+Em vez de utilizar um banco de dados relacional ou NoSQL, o projeto utiliza um arquivo JSON estático como fonte de dados.
 
-## Resources
+Essa decisão foi tomada porque:
 
-Check out a few resources that may come in handy when working with NestJS:
+O escopo do projeto é simples e focado em API
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+Não há necessidade de configuração de banco externo
 
-## Support
+Facilita o deploy e o uso em ambientes de teste
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+Reduz complexidade sem comprometer o objetivo do projeto
 
-## Stay in touch
+Essa abordagem simula uma persistência de dados sem adicionar dependências desnecessárias.
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+🚀 Endpoints Disponíveis
+🔹 Listar todos os produtos
+GET /products
+
+
+Retorna a lista completa de produtos.
+
+🔹 Buscar produto por ID
+GET /products/:id
+
+
+Retorna os dados de um produto específico com base no ID informado.
+
+⚙️ Como Rodar o Projeto Localmente
+Pré-requisitos
+
+Node.js (versão LTS recomendada)
+
+npm
+
+Passo a passo
+# clonar o repositório
+git clone <url-do-repositorio>
+
+# acessar a pasta do projeto
+cd mini-ecommerce-api
+
+# instalar as dependências
+npm install
+
+# iniciar a aplicação em modo desenvolvimento
+npm run start:dev
+
+
+A aplicação ficará disponível em:
+
+http://localhost:3000
+
+🌐 Deploy Público
+
+A API está disponível online no link abaixo:
+
+🔗 https://minibackend-oo7g.onrender.com
+
+📌 Considerações Finais
+
+Projeto voltado para estudo, testes de frontend ou avaliação técnica
+
+Estrutura simples, mas alinhada a boas práticas de backend
+
+Fácil de expandir com novos endpoints ou integração com banco de dados real
+
+Código organizado e de fácil leitura
 
 ## License
 
